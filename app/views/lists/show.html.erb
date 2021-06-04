@@ -1,10 +1,10 @@
 <h1><%= @list.name %></h1>
 <% @list.bookmarks.each do |bookmark| %>
   <div class='container border'>
-   <p><strong><%= bookmark.movie.title %></strong> - "<%= bookmark.comment %>"</p>
+      <%= image_tag(bookmark.movie.poster_url,  width: 400, height: 300, crop: :fill) %>
+    <p><strong><%= bookmark.movie.title %></strong> - "<%= bookmark.comment %>"</p>
     <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %>
   </div>
 <% end %>
 <%= link_to "Back", root_path %> |
-<%= link_to "+Add Bookmark", new_list_bookmark_path(@list.id) %> |
-
+<%= link_to "+Add Bookmark", new_list_bookmark_path(@list.id) %>
